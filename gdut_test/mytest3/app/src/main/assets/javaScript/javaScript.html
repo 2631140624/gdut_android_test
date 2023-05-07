@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript Toast Example</title>
+  <style>
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 16px;
+            padding: 16px;
+            background-color: #333;
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .toast.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<button onclick="showToast('Hello, World!', 3000)">Show Toast</button>
+<div id="toast" class="toast"></div>
+<script>
+        function showToast(message, duration) {
+            var toast = document.getElementById("toast");
+            toast.innerHTML = message;
+            toast.classList.add("show");
+            setTimeout(function() {
+                toast.classList.remove("show");
+            }, duration);
+        }
+    </script>
+</body>
+</html>
+
